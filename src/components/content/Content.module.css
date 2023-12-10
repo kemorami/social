@@ -1,0 +1,50 @@
+.content{
+    grid-area: content;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+.me{
+    display: flex;
+    padding: 20px;
+    align-items: center;
+}
+.name{
+    font-size: 30px;
+    font-weight: 20px;
+    margin-left: 25px;
+}
+.ava{
+    width: 170px;
+    height: 170px;
+}
+.myposts{
+    font-size: 40px;
+}
+.input{
+    padding: 10px;
+    border: 3px solid wheat;
+    outline: none;
+    border-radius: 7px;
+}
+.input:focus{
+    border: 3px solid darkslategray;
+}
+.button{
+    width: 120px;
+    height: 40px;
+    border: 3px solid wheat;
+    margin-left: 10px;
+    border-radius: 7px;
+    
+}
+.avatar{
+    margin-top: 25px;
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+}
+.postName{
+    font-size: 30px;
+    font-weight: 20px;
+}

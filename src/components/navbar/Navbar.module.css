@@ -1,0 +1,18 @@
+.navbar{
+    grid-area: navbar;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    align-items: center;
+}
+.href{
+    text-decoration: none;
+    color: white;
+    margin: 15px;
+    font-size: 20px;
+    transition: 0.5s;
+}
+.href:hover{
+    color: cornflowerblue;
+    transform: scale(1.2);
+}
