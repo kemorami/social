@@ -1,5 +1,6 @@
 import styles from './Content.module.css'
 import img from '../../img/ava.jpg'
+import Posts from './posts/Posts'
 function Content(){
     return(
         <div className={styles.content}>
@@ -8,15 +9,7 @@ function Content(){
             <p className={styles.name}>Алексей</p>
         </div>
         <h2 className={styles.myposts}>Мои посты</h2>
-        <div className={styles.posts}>
-            <input type="text" className={styles.input}/>
-            <button className={styles.button}>Добавить пост</button>
-        <div className={styles.post}>
-                <img src={img} alt="" className={styles.avatar}/>
-                <p className={styles.postName}>Алексей</p>
-                <p>Всем привет</p>
-            </div>
-        </div>
+        <Posts/>
         </div>
     )
 } 

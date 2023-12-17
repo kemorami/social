@@ -1,0 +1,10 @@
+.avatar{
+    margin-top: 25px;
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+}
+.postName{
+    font-size: 30px;
+    font-weight: 20px;
+}
