@@ -3,14 +3,13 @@ import Post from '../Post/Post.jsx'
 import img from '../../../img/fenics.jpg'
 import imgg from '../../../img/i.webp'
 import immg from '../../../img/ava.jpg'
+let postsUser = [{name:"Алексей", text:"Всем привет", img:img},{name:"Кирилл", text:"Да", img:imgg},{name:"Матвей", text:"Нет", img:immg}]
 function Posts(){
     return(
         <div className={styles.posts}>
             <input type="text" className={styles.input}/>
             <button className={styles.button}>Добавить пост</button>
-            <Post name='Алексей' text='Всем привет' img={img}/>
-            <Post name='Кирилл' text='Да' img={imgg}/>
-            <Post name='Матвей' text='Нет' img={immg}/>
+            {postsUser.map((item,idx)=> <Post name={item.name} text={item.text} img={item.img} key={idx}/>)}
         </div>
     )
 }
