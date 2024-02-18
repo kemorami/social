@@ -1,12 +1,12 @@
 import styles from './Content.module.css'
 import Posts from './posts/Posts'
 import Profile from '../profile/Profile'
-function Content(){
+function Content({data}){
     return(
         <>
         <Profile/>
         <h2 className={styles.myposts}>Мои посты</h2>
-        <Posts/>
+        <Posts data={data}/>
         </>
     )
 } 
