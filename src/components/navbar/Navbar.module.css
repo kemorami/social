@@ -16,3 +16,13 @@
     color: cornflowerblue;
     transform: scale(1.2);
 }
+.navlink{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.Friend{
+    display: flex;
+    flex-wrap: wrap;
+    
+}

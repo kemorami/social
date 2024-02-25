@@ -1,0 +1,15 @@
+
+.Friend{
+    margin: 10px;
+    text-align: center;
+    width: 42%;
+}
+.img{
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    
+}
+.name{
+    font-size: 20px;
+}
