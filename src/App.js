@@ -6,15 +6,15 @@ import { BrowserRouter,Route } from 'react-router-dom';
 import Dialogs from './components/dialogs/Dialogs';
 import Error from './components/error/Error'  
 
-function App({data}) {
+function App({data,qwerty}) {
   return (
     <div className='wrapper'>
     <BrowserRouter>
       <Header/>
       <Navbar data={data.myFriends}/>
       <div className={"content"}>
-        <Route path="/" render={()=><Content data={data.postsUser}/>} exact/>
-        <Route path="/content" render={()=><Content data={data.postsUser}/>} exact/>
+        <Route path="/" render={()=><Content data={data.postsUser} qwerty={qwerty}/>} exact/>
+        <Route path="/content" render={()=><Content data={data.postsUser} qwerty={qwerty}/>} exact/>
         <Route path="/dialogs" render={()=><Dialogs data={data.dialogUser}/>} exact/>
         {/* <Route paht="*" component={Error} exact/> */}
       </div>

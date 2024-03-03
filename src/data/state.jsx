@@ -11,3 +11,8 @@ let state = {
     myFriends:[{img:friend, name:"Андрей"},{img:friend1, name:"Андрей"},{img:friend2, name:"Максим"},{img:friend3, name:"Марк"}]
 }
 export default state
+export let addPosts = (postText)=>{
+    let newPost = {name:"ffff", text:postText, img:img, numberLikes:"11230"}
+    state.postsUser.push(newPost)
+    console.log(state.postsUser);
+}
