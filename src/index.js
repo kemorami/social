@@ -3,13 +3,12 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import state from './data/state'
-import { addPosts } from './data/state';
+import state, { sendMessage, addPosts  }  from './data/state'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
 
-    <App data={state} qwerty={addPosts}/>
+    <App data={state} qwerty={addPosts} asdfgh={sendMessage}/>
 
 );
 

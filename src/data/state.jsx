@@ -16,3 +16,8 @@ export let addPosts = (postText)=>{
     state.postsUser.push(newPost)
     console.log(state.postsUser);
 }
+export let sendMessage = (dialogsText)=>{
+    let newDialog = {name:"Lkkk", text:dialogsText, id:"10"}
+    state.dialogUser.push(newDialog)
+    console.log(state.dialogUser);
+}
