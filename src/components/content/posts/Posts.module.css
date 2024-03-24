@@ -4,6 +4,7 @@
     border: 3px solid wheat;
     outline: none;
     border-radius: 7px;
+    margin-right: 10px;
 }
 .input:focus{
     border: 3px solid darkslategray;

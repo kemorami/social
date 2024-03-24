@@ -2,10 +2,11 @@ import styles from './Dialogs.module.css'
 import Dialog from '../dialog/Dialog'
 import React from 'react'
 let dialogsText = React.createRef()
+let dialogsName = React.createRef()
 
 function Dialogs({data,asdfgh}){
     let sendMessage =()=>{
-        asdfgh(dialogsText.current.value)
+        asdfgh(dialogsText.current.value, dialogsName.current.value)
     }
     return(
     <>
@@ -16,6 +17,7 @@ function Dialogs({data,asdfgh}){
             <Dialog name={dialogUser[2].name} text={dialogUser[2].text} id={dialogUser[2].id}/> */}
             {data.map((item,idx)=> <Dialog name={item.name} text={item.text} id={idx} key={idx}/>)}
             <div className={styles.div}>
+                <input type="text" ref={dialogsName} className={styles.input}/>
                 <input type="text" ref={dialogsText} className={styles.input} />
                 <button className={styles.send} onClick={sendMessage}>Отправить</button>
             </div>
