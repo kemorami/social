@@ -6,7 +6,8 @@ import { BrowserRouter,Route } from 'react-router-dom';
 import Dialogs from './components/dialogs/Dialogs';
 import Error from './components/error/Error'  
 
-function App({data,qwerty,asdfgh}) {
+function App({data,qwerty,asdfgh,change}) {
+  
   return (
     <div className='wrapper'>
     <BrowserRouter>
@@ -15,7 +16,7 @@ function App({data,qwerty,asdfgh}) {
       <div className={"content"}>
         <Route path="/" render={()=><Content data={data.postsUser} qwerty={qwerty}/>} exact/>
         <Route path="/content" render={()=><Content data={data.postsUser} qwerty={qwerty}/>} exact/>
-        <Route path="/dialogs" render={()=><Dialogs data={data.dialogUser} asdfgh={asdfgh}/>} exact/>
+        <Route path="/dialogs" render={()=><Dialogs data={data.dialogUser} asdfgh={asdfgh} text={data.text} change={change}/>} exact/>
         {/* <Route paht="*" component={Error} exact/> */}
       </div>
     </BrowserRouter>

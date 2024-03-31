@@ -10,7 +10,8 @@ import {Render} from '../Render'
 let state = {
     dialogUser:[{name:"Андрей", text:"Привет", id:"1"},{name:"Мартин", text:"Доброе утро", id:"2"},{name:"Артём", text:"Добрый вечер", id:"3"},{name:"Олег", text:"Доброй ночи", id:"4"}],
     postsUser:[{name:"Алексей", text:"Всем привет", img:img, numberLikes:"10"},{name:"Кирилл", text:"Да", img:imgg, numberLikes:"5"},{name:"Матвей", text:"Нет", img:immg, numberLikes:"129"}],
-    myFriends:[{img:friend, name:"Андрей"},{img:friend1, name:"Андрей"},{img:friend2, name:"Максим"},{img:friend3, name:"Марк"}]
+    myFriends:[{img:friend, name:"Андрей"},{img:friend1, name:"Андрей"},{img:friend2, name:"Максим"},{img:friend3, name:"Марк"}],
+    text:"Hello"
 }
 export default state
 export let addPosts = (postText, postsName)=>{
@@ -23,5 +24,9 @@ export let sendMessage = (dialogsText, dialogsName)=>{
     let newDialog = {name:dialogsName, text:dialogsText, id:"10"}
     state.dialogUser.unshift(newDialog)
     console.log(state.dialogUser);
+    Render(state)
+}
+export let dialogChange = (text)=>{
+    state.text += text
     Render(state)
 }

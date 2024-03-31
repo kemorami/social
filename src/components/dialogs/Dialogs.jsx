@@ -3,11 +3,16 @@ import Dialog from '../dialog/Dialog'
 import React from 'react'
 let dialogsText = React.createRef()
 let dialogsName = React.createRef()
+let dialogChange = React.createRef()
 
-function Dialogs({data,asdfgh}){
+function Dialogs({data,asdfgh,text,change}){
     let sendMessage =()=>{
         asdfgh(dialogsText.current.value, dialogsName.current.value)
     }
+    // let changeDialog = ()=>{
+    //     change(dialogChange.current.value)
+    //     console.log(text);
+    // }
     return(
     <>
         <h1>Диалоги</h1>
@@ -19,6 +24,7 @@ function Dialogs({data,asdfgh}){
             <div className={styles.div}>
                 <input type="text" ref={dialogsName} className={styles.input}/>
                 <input type="text" ref={dialogsText} className={styles.input} />
+                {/* <input type="text" ref={dialogChange} className={styles.input} onChange={changeDialog}/> */}
                 <button className={styles.send} onClick={sendMessage}>Отправить</button>
             </div>
         </div>
