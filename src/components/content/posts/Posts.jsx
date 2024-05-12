@@ -4,10 +4,14 @@ import React from 'react';
 let postsText = React.createRef()
 let postsName = React.createRef()
 
-function Posts({data,qwerty} ){
+function Posts({data,qwerty,postChange} ){
     let addPosts =()=>{
         qwerty(postsText.current.value, postsName.current.value)
     }
+    // let changePost = ()=>{
+    //     postChange(postChange.current.value)
+    //     console.log(text);
+    // }
     return(
         <div className={styles.posts}>
             <input type="text" ref={postsName} className={styles.input} placeholder='Введите имя.'/>

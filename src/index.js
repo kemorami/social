@@ -4,16 +4,14 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { sendMessage, addPosts, dialogChange  }  from './data/state'
-import state from './data/state'
-import { subscribe } from './data/state';
-export let Render = (state)=>{
+import store from './data/state';
+export let render = (state)=>{
     const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-    <App data={state} qwerty={addPosts} asdfgh={sendMessage} change={dialogChange}/>
+    <App data={state} qwerty={store.addPosts.bind(store)} asdfgh={store.sendMessage.bind(store)} dialogChange={store.dialogChange.bind(store)} postChange={store.postChange.bind(store)}/>
 
 );
 }
-Render(state)
-subscribe(Render)
+render(store.getState())
+store.subscribe(render)
 reportWebVitals();

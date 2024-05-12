@@ -5,12 +5,12 @@ let dialogsText = React.createRef()
 let dialogsName = React.createRef()
 let dialogChange = React.createRef()
 
-function Dialogs({data,asdfgh,text,change}){
+function Dialogs({data,asdfgh,text,dialogChange}){
     let sendMessage =()=>{
         asdfgh(dialogsText.current.value, dialogsName.current.value)
     }
     // let changeDialog = ()=>{
-    //     change(dialogChange.current.value)
+    //     dialogChange(dialogChange.current.value)
     //     console.log(text);
     // }
     return(
