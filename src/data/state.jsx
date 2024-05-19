@@ -5,7 +5,6 @@ import friend from '../img/friend.jpg'
 import friend1 from '../img/friend1.jpg'
 import friend2 from '../img/friend2.jpg'
 import friend3 from '../img/friend3.jpg'
-import {Render} from '../Render' 
 let store = {
 _state : {
     dialogUser:[{name:"Андрей", text:"Привет", id:"1"},{name:"Мартин", text:"Доброе утро", id:"2"},{name:"Артём", text:"Добрый вечер", id:"3"},{name:"Олег", text:"Доброй ночи", id:"4"}],
@@ -13,26 +12,26 @@ _state : {
     myFriends:[{img:friend, name:"Андрей"},{img:friend1, name:"Андрей"},{img:friend2, name:"Максим"},{img:friend3, name:"Марк"}],
     text:"Hello"
 },
-addPosts(postText, postsName){
-    let newPost = {name:postsName, text:postText, img:img, numberLikes:"11230"}
-    this._state.postsUser.unshift(newPost)
-    console.log(this._state.postsUser);
-    Render(this._state)
-},
-sendMessage(dialogsText, dialogsName){
-    let newDialog = {name:dialogsName, text:dialogsText, id:"10"}
-    this._state.dialogUser.unshift(newDialog)
-    console.log(this._state.dialogUser);
-    Render(this._state)
-},
-dialogChange(text){
-    this._state.text += text
-    Render(this._state)
-},
-postChange(text){
-    this._state.text += text
-    Render(this._state)
-},
+// addPosts(postText, postsName){
+    // let newPost = {name:postsName, text:postText, img:img, numberLikes:"11230"}
+    // this._state.postsUser.unshift(newPost)
+    // console.log(this._state.postsUser);
+    // render(this._state)
+// },
+// sendMessage(dialogsText, dialogsName){
+    // let newDialog = {name:dialogsName, text:dialogsText, id:"10"}
+    // this._state.dialogUser.unshift(newDialog)
+    // console.log(this._state.dialogUser);
+    // render(this._state)
+// },
+// dialogChange(text){
+    // this._state.text += text
+    // render(this._state)
+// },
+// postChange(text){
+    // this._state.text += text
+    // render(this._state)
+// },
 render(){
     console.log("привет");
 },
@@ -41,6 +40,26 @@ subscribe(obs){
 },
 getState(){
     return this._state
+},
+dispatch(action){
+    if(action.type == "add-post"){
+        let newPost = {name:"", text:this._state,text, img:img, numberLikes:"11230"}
+        this._state.postsUser.unshift(newPost)
+        this._state.postsUser = ""
+        // console.log(this._state.postsUser);
+        render(this._state)
+    }else if (action.type == "post-change"){
+        this._state.text += action.text
+        render(this._state)
+    }else if (action.type == "send-message"){
+        let newDialog = {name:dialogsName, text:dialogsText, id:"10"}
+        this._state.dialogUser.unshift(newDialog)
+        console.log(this._state.dialogUser);
+        render(this._state)
+    }else if (action.type == "message-change"){
+        this._state.text += action.text
+        render(this._state)
+    }
 }
 }
 export default store;

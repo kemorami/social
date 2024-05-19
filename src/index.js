@@ -8,7 +8,13 @@ import store from './data/state';
 export let render = (state)=>{
     const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-    <App data={state} qwerty={store.addPosts.bind(store)} asdfgh={store.sendMessage.bind(store)} dialogChange={store.dialogChange.bind(store)} postChange={store.postChange.bind(store)}/>
+    <App data={state}
+    dispatch={store.dispatch.bind(store)}
+    // qwerty={store.addPosts.bind(store)}
+    // asdfgh={store.sendMessage.bind(store)}
+    // dialogChange={store.dialogChange.bind(store)}
+    // postChange={store.postChange.bind(store)}
+    />
 
 );
 }
