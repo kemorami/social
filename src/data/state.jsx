@@ -43,22 +43,22 @@ getState(){
 },
 dispatch(action){
     if(action.type == "add-post"){
-        let newPost = {name:"", text:this._state,text, img:img, numberLikes:"11230"}
+        let newPost = {name:"", text:this._state.text, img:img, numberLikes:"11230"}
         this._state.postsUser.unshift(newPost)
         this._state.postsUser = ""
         // console.log(this._state.postsUser);
-        render(this._state)
+        this.render(this._state)
     }else if (action.type == "post-change"){
         this._state.text += action.text
-        render(this._state)
+        this.render(this._state)
     }else if (action.type == "send-message"){
-        let newDialog = {name:dialogsName, text:dialogsText, id:"10"}
+        let newDialog = {name:"Андрей", text:this._state.text, id:"10"}
         this._state.dialogUser.unshift(newDialog)
         console.log(this._state.dialogUser);
-        render(this._state)
+        this.render(this._state)
     }else if (action.type == "message-change"){
         this._state.text += action.text
-        render(this._state)
+        this.render(this._state)
     }
 }
 }
