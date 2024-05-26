@@ -5,15 +5,16 @@ let dialogsText = React.createRef()
 let dialogsName = React.createRef()
 let dialogChange = React.createRef()
 
-function Dialogs({data,asdfgh,text,dialogChange,dispatch}){
+function Dialogs({data,asdfgh,text,dialogChange,dispatch,dataName}){
     let sendMessage =()=>{
         // asdfgh(dialogsText.current.value, dialogsName.current.value)
         dispatch({type:"send-message"})
+        dialogsText.current.value = "" 
     }
     let changeDialog = ()=>{
         // dialogChange(dialogChange.current.value)
         // console.log(text);
-        dispatch({type:"message-change", text:dialogsText.current.value})
+        dispatch({type:"message-change", text:dialogsText.current.value, name:dialogsName.current.value})
     }
     return(
     <>
@@ -24,8 +25,8 @@ function Dialogs({data,asdfgh,text,dialogChange,dispatch}){
             <Dialog name={dialogUser[2].name} text={dialogUser[2].text} id={dialogUser[2].id}/> */}
             {data.map((item,idx)=> <Dialog name={item.name} text={item.text} id={idx} key={idx}/>)}
             <div className={styles.div}>
-                <input type="text" ref={dialogsName} className={styles.input}/>
-                <input type="text" ref={dialogsText} className={styles.input} />
+                <input type="text" ref={dialogsName} className={styles.input} onChange={changeDialog} value={dataName}/>
+                <input type="text" ref={dialogsText} className={styles.input} onChange={changeDialog} value={text}/>
                 {/* <input type="text" ref={dialogChange} className={styles.input} onChange={changeDialog}/> */}
                 <button className={styles.send} onClick={sendMessage}>Отправить</button>
             </div>

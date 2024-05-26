@@ -10,7 +10,8 @@ _state : {
     dialogUser:[{name:"Андрей", text:"Привет", id:"1"},{name:"Мартин", text:"Доброе утро", id:"2"},{name:"Артём", text:"Добрый вечер", id:"3"},{name:"Олег", text:"Доброй ночи", id:"4"}],
     postsUser:[{name:"Алексей", text:"Всем привет", img:img, numberLikes:"10"},{name:"Кирилл", text:"Да", img:imgg, numberLikes:"5"},{name:"Матвей", text:"Нет", img:immg, numberLikes:"129"}],
     myFriends:[{img:friend, name:"Андрей"},{img:friend1, name:"Андрей"},{img:friend2, name:"Максим"},{img:friend3, name:"Марк"}],
-    text:"Hello"
+    text:"",
+    name:""
 },
 // addPosts(postText, postsName){
     // let newPost = {name:postsName, text:postText, img:img, numberLikes:"11230"}
@@ -42,22 +43,24 @@ getState(){
     return this._state
 },
 dispatch(action){
-    if(action.type == "add-post"){
-        let newPost = {name:"", text:this._state.text, img:img, numberLikes:"11230"}
+    if(action.type === "add-post"){
+        let newPost = {name:this._state.name, text:this._state.text, img:img, numberLikes:"11230"}
         this._state.postsUser.unshift(newPost)
-        this._state.postsUser = ""
+        this._state.text = ""
         // console.log(this._state.postsUser);
         this.render(this._state)
-    }else if (action.type == "post-change"){
-        this._state.text += action.text
+    }else if (action.type === "post-change"){
+        this._state.text = action.text
+        this._state.name = action.name
         this.render(this._state)
-    }else if (action.type == "send-message"){
-        let newDialog = {name:"Андрей", text:this._state.text, id:"10"}
+    }else if (action.type === "send-message"){
+        let newDialog = {name:this._state.name, text:this._state.text, id:"10"}
         this._state.dialogUser.unshift(newDialog)
-        console.log(this._state.dialogUser);
+        this._state.text = ""
         this.render(this._state)
-    }else if (action.type == "message-change"){
-        this._state.text += action.text
+    }else if (action.type === "message-change"){
+        this._state.text = action.text
+        this._state.name = action.name
         this.render(this._state)
     }
 }
