@@ -7,6 +7,14 @@ let postsName = React.createRef()
 function Posts({data,qwerty,postChange,dispatch,dataText,dataName} ){
     let addPosts =()=>{
         // qwerty(postsText.current.value, postsName.current.value)
+        if(postsText.current.value.length < 6){
+            
+            return false
+        }
+        if(postsName.current.value.length < 3){
+            return false
+        }
+        console.log(120938);
         dispatch({type:"add-post"})
         postsText.current.value = ""
         postsName.current.value = ""

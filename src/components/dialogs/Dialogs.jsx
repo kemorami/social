@@ -8,6 +8,12 @@ let dialogChange = React.createRef()
 function Dialogs({data,asdfgh,text,dialogChange,dispatch,dataName}){
     let sendMessage =()=>{
         // asdfgh(dialogsText.current.value, dialogsName.current.value)
+        if (dialogsText.current.value.length < 6){
+            return false
+        }
+        if(dialogsName.current.value.length < 3){
+            return false
+        }
         dispatch({type:"send-message"})
         dialogsText.current.value = "" 
     }
@@ -16,6 +22,7 @@ function Dialogs({data,asdfgh,text,dialogChange,dispatch,dataName}){
         // console.log(text);
         dispatch({type:"message-change", text:dialogsText.current.value, name:dialogsName.current.value})
     }
+    
     return(
     <>
         <h1>Диалоги</h1>
@@ -28,7 +35,9 @@ function Dialogs({data,asdfgh,text,dialogChange,dispatch,dataName}){
                 <input type="text" ref={dialogsName} className={styles.input} onChange={changeDialog} value={dataName}/>
                 <input type="text" ref={dialogsText} className={styles.input} onChange={changeDialog} value={text}/>
                 {/* <input type="text" ref={dialogChange} className={styles.input} onChange={changeDialog}/> */}
-                <button className={styles.send} onClick={sendMessage}>Отправить</button>
+                <button className={styles.send} onClick={()=>{
+                    sendMessage()
+                }} id='button'>Отправить</button>
             </div>
         </div>
     </>
