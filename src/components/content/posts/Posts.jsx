@@ -22,6 +22,17 @@ function Posts({data,qwerty,postChange,dispatch,dataText,dataName} ){
     let changePost = ()=>{
         // postChange(postChange.current.value)
         // console.log(text);
+        if (postsText.current.value.length < 6) {
+            postsText.current.style.border = "1px solid red"
+        } else if (postsText.current.value.length >= 6){
+            postsText.current.style.border = "none"
+        }
+        if (postsName.current.value.length < 3) {
+            postsName.current.style.border = "1px solid red"
+        } else if (postsName.current.value.length >= 3){
+            postsName.current.style.border = "none"
+        }
+        console.log(postsText.current);
         dispatch({type:"post-change", text:postsText.current.value, name:postsName.current.value})
     }
     return(
