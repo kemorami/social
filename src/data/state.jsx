@@ -5,6 +5,10 @@ import friend from '../img/friend.jpg'
 import friend1 from '../img/friend1.jpg'
 import friend2 from '../img/friend2.jpg'
 import friend3 from '../img/friend3.jpg'
+const ADD_POST = "add-post"
+const POST_CHANGE = "change-post"
+const SEND_MESSAGE = "send-message"
+const MESSAGE_CHANGE = "message-change"
 let store = {
 _state : {
     dialogUser:[{name:"Андрей", text:"Привет", id:"1"},{name:"Мартин", text:"Доброе утро", id:"2"},{name:"Артём", text:"Добрый вечер", id:"3"},{name:"Олег", text:"Доброй ночи", id:"4"}],
@@ -43,17 +47,17 @@ getState(){
     return this._state
 },
 dispatch(action){
-    if(action.type === "add-post"){
+    if(action.type === ADD_POST){
         let newPost = {name:this._state.name, text:this._state.text, img:img, numberLikes:"11230"}
         this._state.postsUser.unshift(newPost)
         this._state.text = ""
         // console.log(this._state.postsUser);
         this.render(this._state)
-    }else if (action.type === "post-change"){
+    }else if (action.type === POST_CHANGE){
         this._state.text = action.text
         this._state.name = action.name
         this.render(this._state)
-    }else if (action.type === "send-message"){
+    }else if (action.type === SEND_MESSAGE){
         let newDialog = {name:this._state.name, text:this._state.text, id:"10"}
         this._state.dialogUser.unshift(newDialog)
         this._state.text = ""
@@ -64,5 +68,17 @@ dispatch(action){
         this.render(this._state)
     }
 }
+}
+export let addPostAC = ()=>{
+
+}
+export let postChangeAC = ()=>{
+
+}
+export let sendMessageAC = ()=>{
+
+}
+export let messageChangeAC = ()=>{
+
 }
 export default store;

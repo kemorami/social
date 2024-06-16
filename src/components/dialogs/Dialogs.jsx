@@ -23,12 +23,12 @@ function Dialogs({data,asdfgh,text,dialogChange,dispatch,dataName}){
         if (dialogsText.current.value.length < 6) {
             dialogsText.current.style.border = "1px solid red"
         } else if (dialogsText.current.value.length >= 6){
-            dialogsText.current.style.border = "none"
+            dialogsText.current.style.border = "1px solid wheat"
         }
         if (dialogsName.current.value.length < 3) {
             dialogsName.current.style.border = "1px solid red"
         } else if (dialogsName.current.value.length >= 3){
-            dialogsName.current.style.border = "none"
+            dialogsName.current.style.border = "1px solid wheat"
         }
         dispatch({type:"message-change", text:dialogsText.current.value, name:dialogsName.current.value})
     }

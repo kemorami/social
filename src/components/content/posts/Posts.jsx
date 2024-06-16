@@ -14,7 +14,6 @@ function Posts({data,qwerty,postChange,dispatch,dataText,dataName} ){
         if(postsName.current.value.length < 3){
             return false
         }
-        console.log(120938);
         dispatch({type:"add-post"})
         postsText.current.value = ""
         postsName.current.value = ""
@@ -25,14 +24,13 @@ function Posts({data,qwerty,postChange,dispatch,dataText,dataName} ){
         if (postsText.current.value.length < 6) {
             postsText.current.style.border = "1px solid red"
         } else if (postsText.current.value.length >= 6){
-            postsText.current.style.border = "none"
+            postsText.current.style.border = "1px solid wheat"
         }
         if (postsName.current.value.length < 3) {
             postsName.current.style.border = "1px solid red"
         } else if (postsName.current.value.length >= 3){
-            postsName.current.style.border = "none"
+            postsName.current.style.border = "1px solid wheat"
         }
-        console.log(postsText.current);
         dispatch({type:"post-change", text:postsText.current.value, name:postsName.current.value})
     }
     return(
