@@ -1,6 +1,7 @@
 import styles from './Dialogs.module.css'
 import Dialog from '../dialog/Dialog'
 import React from 'react'
+import { messageChangeAC, sendMessageAC } from '../../data/state.jsx'
 let dialogsText = React.createRef()
 let dialogsName = React.createRef()
 let dialogChange = React.createRef()
@@ -14,7 +15,7 @@ function Dialogs({data,asdfgh,text,dialogChange,dispatch,dataName}){
         if(dialogsName.current.value.length < 3){
             return false
         }
-        dispatch({type:"send-message"})
+        dispatch(sendMessageAC())
         dialogsText.current.value = "" 
     }
     let changeDialog = ()=>{
@@ -30,7 +31,7 @@ function Dialogs({data,asdfgh,text,dialogChange,dispatch,dataName}){
         } else if (dialogsName.current.value.length >= 3){
             dialogsName.current.style.border = "1px solid wheat"
         }
-        dispatch({type:"message-change", text:dialogsText.current.value, name:dialogsName.current.value})
+        dispatch(messageChangeAC(dialogsText.current.value, dialogsName.current.value))
     }
     
     return(

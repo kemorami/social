@@ -6,7 +6,7 @@ import friend1 from '../img/friend1.jpg'
 import friend2 from '../img/friend2.jpg'
 import friend3 from '../img/friend3.jpg'
 const ADD_POST = "add-post"
-const POST_CHANGE = "change-post"
+const POST_CHANGE = "post-change"
 const SEND_MESSAGE = "send-message"
 const MESSAGE_CHANGE = "message-change"
 let store = {
@@ -62,7 +62,7 @@ dispatch(action){
         this._state.dialogUser.unshift(newDialog)
         this._state.text = ""
         this.render(this._state)
-    }else if (action.type === "message-change"){
+    }else if (action.type === MESSAGE_CHANGE){
         this._state.text = action.text
         this._state.name = action.name
         this.render(this._state)
@@ -70,15 +70,15 @@ dispatch(action){
 }
 }
 export let addPostAC = ()=>{
-
+    return{type: "add-post", id:1}
 }
-export let postChangeAC = ()=>{
-
+export let postChangeAC = (text, name)=>{
+    return{type: "post-change", text:text, name:name}
 }
 export let sendMessageAC = ()=>{
-
+    return{type: "send-message", id:1}
 }
-export let messageChangeAC = ()=>{
-
+export let messageChangeAC = (text, name)=>{
+    return{type: "message-change", text:text, name:name}
 }
 export default store;

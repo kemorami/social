@@ -1,6 +1,7 @@
 import styles from './Posts.module.css'
 import Post from '../Post/Post.jsx'
 import React from 'react';
+import { addPostAC, postChangeAC } from '../../../data/state.jsx';
 let postsText = React.createRef()
 let postsName = React.createRef()
 
@@ -14,7 +15,7 @@ function Posts({data,qwerty,postChange,dispatch,dataText,dataName} ){
         if(postsName.current.value.length < 3){
             return false
         }
-        dispatch({type:"add-post"})
+        dispatch(addPostAC())
         postsText.current.value = ""
         postsName.current.value = ""
     }
@@ -31,7 +32,7 @@ function Posts({data,qwerty,postChange,dispatch,dataText,dataName} ){
         } else if (postsName.current.value.length >= 3){
             postsName.current.style.border = "1px solid wheat"
         }
-        dispatch({type:"post-change", text:postsText.current.value, name:postsName.current.value})
+        dispatch(postChangeAC(postsText.current.value, postsName.current.value))
     }
     return(
         <div className={styles.posts}>
