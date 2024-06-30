@@ -1,20 +1,20 @@
 import styles from './Posts.module.css'
 import Post from '../Post/Post.jsx'
 import React from 'react';
-import { addPostAC, postChangeAC } from '../../../data/state.jsx';
+import { addPostAC, postChangeAC } from '../../../data/profileReduser.jsx';
 let postsText = React.createRef()
 let postsName = React.createRef()
 
 function Posts({data,qwerty,postChange,dispatch,dataText,dataName} ){
     let addPosts =()=>{
         // qwerty(postsText.current.value, postsName.current.value)
-        if(postsText.current.value.length < 6){
+        // if(postsText.current.value.length < 6){
             
-            return false
-        }
-        if(postsName.current.value.length < 3){
-            return false
-        }
+        //     return false
+        // }
+        // if(postsName.current.value.length < 3){
+        //     return false
+        // }
         dispatch(addPostAC())
         postsText.current.value = ""
         postsName.current.value = ""

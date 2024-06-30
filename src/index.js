@@ -20,4 +20,3 @@ ReactDOM.render(
 }
 render(store.getState())
 store.subscribe(render)
-reportWebVitals();

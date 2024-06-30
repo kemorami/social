@@ -1,7 +1,7 @@
 import styles from './Dialogs.module.css'
 import Dialog from '../dialog/Dialog'
 import React from 'react'
-import { messageChangeAC, sendMessageAC } from '../../data/state.jsx'
+import { messageChangeAC, sendMessageAC } from '../../data/dialogsReduser.jsx'
 let dialogsText = React.createRef()
 let dialogsName = React.createRef()
 let dialogChange = React.createRef()
