@@ -21,7 +21,7 @@ function Posts({data,qwerty,postChange,dispatch,dataText,dataName} ){
     }
     let changePost = ()=>{
         // postChange(postChange.current.value)
-        // console.log(text);
+        console.log(1);
         if (postsText.current.value.length < 6) {
             postsText.current.style.border = "1px solid red"
         } else if (postsText.current.value.length >= 6){
@@ -34,12 +34,13 @@ function Posts({data,qwerty,postChange,dispatch,dataText,dataName} ){
         }
         dispatch(postChangeAC(postsText.current.value, postsName.current.value))
     }
+    console.log(data);
     return(
         <div className={styles.posts}>
             <input type="text" ref={postsName} onChange={changePost} className={styles.input} value={dataName} placeholder='Введите имя.'/>
             <input onChange={changePost} type="text" ref={postsText} className={styles.input} value={dataText} placeholder='Введите текст поста.'/>
             <button className={styles.button} onClick={addPosts}>Добавить пост</button>
-            {data.map((item,idx)=> <Post name={item.name} text={item.text} img={item.img} numberLikes={item.numberLikes} key={idx}/>)}
+            {data.users.map((item,idx)=> <Post name={item.name} text={item.text} img={item.img} numberLikes={item.numberLikes} key={idx}/>)}
         </div>
     )
 }

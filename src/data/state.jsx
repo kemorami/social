@@ -8,12 +8,14 @@ import friend3 from '../img/friend3.jpg'
 import profileReduser from './profileReduser'
 // const ADD_POST = "add-post"
 // const POST_CHANGE = "post-change"
-// const SEND_MESSAGE = "send-message"
-// const MESSAGE_CHANGE = "message-change"
+const SEND_MESSAGE = "send-message"
+const MESSAGE_CHANGE = "message-change"
 let store = {
 _state : {
     dialogUser:[{name:"Андрей", text:"Привет", id:"1"},{name:"Мартин", text:"Доброе утро", id:"2"},{name:"Артём", text:"Добрый вечер", id:"3"},{name:"Олег", text:"Доброй ночи", id:"4"}],
-    postsUser:[{name:"Алексей", text:"Всем привет", img:img, numberLikes:"10"},{name:"Кирилл", text:"Да", img:imgg, numberLikes:"5"},{name:"Матвей", text:"Нет", img:immg, numberLikes:"129"}],
+    postsUser:
+    {text:"", name:"",
+        users:[{name:"Алексей", text:"Всем привет", img:img, numberLikes:"10"},{name:"Кирилл", text:"Да", img:imgg, numberLikes:"5"},{name:"Матвей", text:"Нет", img:immg, numberLikes:"129"}]},
     myFriends:[{img:friend, name:"Андрей"},{img:friend1, name:"Андрей"},{img:friend2, name:"Максим"},{img:friend3, name:"Марк"}],
     text:"",
     name:""
@@ -61,30 +63,30 @@ dispatch(action){
     //     this._state.text = action.text
     //     this._state.name = action.name
     //     this.render(this._state)}
-    // else if (action.type === SEND_MESSAGE){
-    //     let newDialog = {name:this._state.name, text:this._state.text, id:"10"}
-    //     this._state.dialogUser.unshift(newDialog)
-    //     this._state.text = ""
-    //     this.render(this._state)
-    // }else if (action.type === MESSAGE_CHANGE){
-    //     this._state.text = action.text
-    //     this._state.name = action.name
-    //     this.render(this._state)
-    // }
-    console.log(this._state.postsUser = profileReduser(this._state.postsUser, action));
+    if (action.type === SEND_MESSAGE){
+        let newDialog = {name:this._state.name, text:this._state.text, id:"10"}
+        this._state.dialogUser.unshift(newDialog)
+        this._state.text = ""
+        this.render(this._state)
+    }else if (action.type === MESSAGE_CHANGE){
+        this._state.text = action.text
+        this._state.name = action.name
+        this.render(this._state)
+    }
+    console.log(this._state.postsUser = profileReduser(this._state, action));
 }
 }
-
+console.log(profileReduser);
 // export let addPostAC = ()=>{
 //     return{type: "add-post", id:1}
 // }
 // export let postChangeAC = (text, name)=>{
 //     return{type: "post-change", text:text, name:name}
 // }
-// export let sendMessageAC = ()=>{
-//     return{type: "send-message", id:1}
-// }
-// export let messageChangeAC = (text, name)=>{
-//     return{type: "message-change", text:text, name:name}
-// }
+export let sendMessageAC = ()=>{
+    return{type: "send-message", id:1}
+}
+export let messageChangeAC = (text, name)=>{
+    return{type: "message-change", text:text, name:name}
+}
 export default store;
