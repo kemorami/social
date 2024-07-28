@@ -1,7 +1,7 @@
 import styles from './Dialogs.module.css'
 import Dialog from '../dialog/Dialog'
 import React from 'react'
-import { messageChangeAC, sendMessageAC } from '../../data/state.jsx'
+import { messageChangeAC, sendMessageAC } from '../../data/dialogsReduser.jsx'
 let dialogsText = React.createRef()
 let dialogsName = React.createRef()
 let dialogChange = React.createRef()
@@ -41,10 +41,10 @@ function Dialogs({data,asdfgh,text,dialogChange,dispatch,dataName}){
             {/* <Dialog name={dialogUser[0].name} text={dialogUser[0].text} id={dialogUser[0].id}/>
             <Dialog name={dialogUser[1].name} text={dialogUser[1].text} id={dialogUser[1].id}/>
             <Dialog name={dialogUser[2].name} text={dialogUser[2].text} id={dialogUser[2].id}/> */}
-            {data.map((item,idx)=> <Dialog name={item.name} text={item.text} id={idx} key={idx}/>)}
+            {data.users.map((item,idx)=> <Dialog name={item.name} text={item.text} id={idx} key={idx}/>)}
             <div className={styles.div}>
-                <input type="text" ref={dialogsName} className={styles.input} onChange={changeDialog} value={dataName}/>
-                <input type="text" ref={dialogsText} className={styles.input} onChange={changeDialog} value={text}/>
+                <input type="text" ref={dialogsName} className={styles.input} onChange={changeDialog} value={data.name}/>
+                <input type="text" ref={dialogsText} className={styles.input} onChange={changeDialog} value={data.text}/>
                 {/* <input type="text" ref={dialogChange} className={styles.input} onChange={changeDialog}/> */}
                 <button className={styles.send} onClick={()=>{
                     sendMessage()

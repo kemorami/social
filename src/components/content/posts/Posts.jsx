@@ -37,8 +37,8 @@ function Posts({data,qwerty,postChange,dispatch,dataText,dataName} ){
     console.log(data);
     return(
         <div className={styles.posts}>
-            <input type="text" ref={postsName} onChange={changePost} className={styles.input} value={dataName} placeholder='Введите имя.'/>
-            <input onChange={changePost} type="text" ref={postsText} className={styles.input} value={dataText} placeholder='Введите текст поста.'/>
+            <input type="text" ref={postsName} onChange={changePost} className={styles.input} value={data.name} placeholder='Введите имя.'/>
+            <input onChange={changePost} type="text" ref={postsText} className={styles.input} value={data.text} placeholder='Введите текст поста.'/>
             <button className={styles.button} onClick={addPosts}>Добавить пост</button>
             {data.users.map((item,idx)=> <Post name={item.name} text={item.text} img={item.img} numberLikes={item.numberLikes} key={idx}/>)}
         </div>

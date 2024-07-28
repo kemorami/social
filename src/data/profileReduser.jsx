@@ -1,10 +1,10 @@
 const ADD_POST = "add-post"
 const POST_CHANGE = "post-change"
 let profileReduser = (state,action )=>{
-    console.log(state.postsUser);
+    
     if(action.type === ADD_POST){
         let newPost = {name:state.name, text:state.text, img:"img", numberLikes:"11230"}
-        state.Users.unshift(newPost)
+        state.users.unshift(newPost)
         state.text = ""
         
     }else if (action.type === POST_CHANGE){

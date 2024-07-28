@@ -6,13 +6,16 @@ import friend1 from '../img/friend1.jpg'
 import friend2 from '../img/friend2.jpg'
 import friend3 from '../img/friend3.jpg'
 import profileReduser from './profileReduser'
+import dialogsReduser from './dialogsReduser'
 // const ADD_POST = "add-post"
 // const POST_CHANGE = "post-change"
 const SEND_MESSAGE = "send-message"
 const MESSAGE_CHANGE = "message-change"
 let store = {
 _state : {
-    dialogUser:[{name:"Андрей", text:"Привет", id:"1"},{name:"Мартин", text:"Доброе утро", id:"2"},{name:"Артём", text:"Добрый вечер", id:"3"},{name:"Олег", text:"Доброй ночи", id:"4"}],
+    dialogUser:
+    {text:"", name:"",
+    users:[{name:"Андрей", text:"Привет", id:"1"},{name:"Мартин", text:"Доброе утро", id:"2"},{name:"Артём", text:"Добрый вечер", id:"3"},{name:"Олег", text:"Доброй ночи", id:"4"}]},
     postsUser:
     {text:"", name:"",
         users:[{name:"Алексей", text:"Всем привет", img:img, numberLikes:"10"},{name:"Кирилл", text:"Да", img:imgg, numberLikes:"5"},{name:"Матвей", text:"Нет", img:immg, numberLikes:"129"}]},
@@ -41,7 +44,7 @@ _state : {
     // render(this._state)
 // },
 render(){
-    console.log("привет");
+    
 },
 subscribe(obs){
     this.render = obs
@@ -51,6 +54,7 @@ getState(){
 },
 dispatch(action){
     this._state.postsUser = profileReduser(this._state.postsUser, action)
+    this._state.dialogUser = dialogsReduser(this._state.dialogUser, action)
     this.render(this._state)
 
     // if(action.type === ADD_POST){
@@ -63,17 +67,17 @@ dispatch(action){
     //     this._state.text = action.text
     //     this._state.name = action.name
     //     this.render(this._state)}
-    if (action.type === SEND_MESSAGE){
-        let newDialog = {name:this._state.name, text:this._state.text, id:"10"}
-        this._state.dialogUser.unshift(newDialog)
-        this._state.text = ""
-        this.render(this._state)
-    }else if (action.type === MESSAGE_CHANGE){
-        this._state.text = action.text
-        this._state.name = action.name
-        this.render(this._state)
-    }
-    console.log(this._state.postsUser = profileReduser(this._state, action));
+    // if (action.type === SEND_MESSAGE){
+    //     let newDialog = {name:this._state.name, text:this._state.text, id:"10"}
+    //     this._state.dialogUser.unshift(newDialog)
+    //     this._state.text = ""
+    //     this.render(this._state)
+    // }else if (action.type === MESSAGE_CHANGE){
+    //     this._state.text = action.text
+    //     this._state.name = action.name
+    //     this.render(this._state)
+    // }
+    
 }
 }
 console.log(profileReduser);
@@ -83,10 +87,10 @@ console.log(profileReduser);
 // export let postChangeAC = (text, name)=>{
 //     return{type: "post-change", text:text, name:name}
 // }
-export let sendMessageAC = ()=>{
-    return{type: "send-message", id:1}
-}
-export let messageChangeAC = (text, name)=>{
-    return{type: "message-change", text:text, name:name}
-}
+// export let sendMessageAC = ()=>{
+//     return{type: "send-message", id:1}
+// }
+// export let messageChangeAC = (text, name)=>{
+//     return{type: "message-change", text:text, name:name}
+// }
 export default store;
